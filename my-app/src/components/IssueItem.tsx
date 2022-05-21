@@ -3,6 +3,7 @@ import {useCallback, useState} from "react";
 import React from 'react';
 import {DropdownIcon} from "./DropdownIcon";
 
+const NO_BODY_MESSAGE = 'This issue does not contain any content';
 export interface GitHubIssue {
     id: number;
     title: string;
@@ -67,7 +68,7 @@ export const IssueItem = (props:GitHubIssue) => {
                     <a className={css(titleStyle)} href={html_url} target="_blank">{title}</a>
                     <div>{`#${number}`}</div>
                 </div>
-                {isOpen ? <div className={css(bodyStyle)}>{body}</div> : null}
+                {isOpen ? <div className={css(bodyStyle)}>{body || NO_BODY_MESSAGE}</div> : null}
             </div>
     )
 }
